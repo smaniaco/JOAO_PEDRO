@@ -1,0 +1,37 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    height: 200vh;
+}
+div {
+    border:double tomato 10px;
+}
+#HEADER {
+    width:100%;
+    text-align: center;
+    border:solid black 10px;
+}
+#FOOTER {
+    width:100%;
+    text-align: center;
+    border:solid black 10px;
+}
+.nome {
+    color:red;
+}
+#controle{
+    border:solid black 3px;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    color: #c4c4c4;
+}
+#adicionarproduto{
+    position: sticky;
+    top :100px;
+
+}
+#funcionarios {
+    position: fixed;
+}
