@@ -2,8 +2,18 @@
     margin:0;
     padding:0;
 }
+.lista-n{
+    margin:10px;
+    padding:10px;
+}
+.lista-u{
+    position: relative;
+    top:15px;
+    margin:10px;
+    padding:10px;
+}
 body {
-    height: 200vh;
+    height: 100vh;
 }
 div {
     border:double tomato 10px;
@@ -15,8 +25,14 @@ div {
 }
 #FOOTER {
     width:100%;
+    position:relative;
+    top:100%;
     text-align: center;
     border:solid black 10px;
+}
+.datas{
+    border:dotted black 2px;
+    width:150px;
 }
 .nome {
     color:red;
@@ -34,4 +50,8 @@ div {
 }
 #funcionarios {
     position: fixed;
+}
+.envio {
+    text-align: center;
+    width:155px;
 }
