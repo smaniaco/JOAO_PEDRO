@@ -59,13 +59,7 @@ div img {
 .icone {
     height: 15px;
 }
-.texto{
-    position: static;
-    top:30px;
-    margin-top:10 px;
-    margin-bottom: 10px;
-    color: red;
-}
+
 
 
 /** 
@@ -77,8 +71,15 @@ div img {
     display: block;
 }
 
+#texto {
+    position: relative;
+    margin: auto;
+    width:175px;
+}
 #container-de-descricao {
     padding-top:20px;
+    text-align-last: center;
+    text-align: center;
     background-color: #2274a5;
     color: white;
 }
