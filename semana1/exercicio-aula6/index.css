@@ -56,6 +56,7 @@ div img {
 .container {
     height: 500px;
     text-align: center;
+    vertical-align: center;
 }
 
 .icone {
@@ -78,6 +79,9 @@ div img {
   **/
 #link{
     display: block;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
 #texto {
@@ -87,10 +91,9 @@ div img {
 }
 #container-de-descricao {
     padding-top:20px;
-    text-align-last: center;
-    text-align: center;
     background-color: #2274a5;
     color: white;
+
 }
 
 #container-de-descricao>ol {
@@ -98,6 +101,7 @@ div img {
 }
 
 #container-para-comprar {
+    text-align-last:center;
     background-color: #e7eb90;
 }
 
@@ -105,6 +109,10 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+}
+#texto-completo{
+    position: relative;
+    top: 30%;
 }
 
 
@@ -130,6 +138,7 @@ table {
     text-align:center;
 }
 table img{
+    background-color: transparent;
     width:50px;
 }
 
@@ -158,9 +167,14 @@ td button:hover{
     background-color: white;
 }
 
+#voltar {
+    text-align:center;
+    margin: auto;
 
+
+}
 #back-button {
-    position: fixed;
+
     background-color: white;
     width: 100px;
     height: 20px;
@@ -168,7 +182,7 @@ td button:hover{
     border-radius: 5px;
     font-size: 10px;
     color: black;
-    align-self: center;
+   
 
 
 }
@@ -191,3 +205,4 @@ loja {
 
     padding: 10px;
 }
+
