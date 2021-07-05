@@ -1,0 +1,206 @@
+* {
+    border:0;
+    margin:0;
+    padding:0;
+    font-family: "Roboto";
+}
+
+/* GLOBAL */
+
+body{
+
+    color:#222222;
+    height: 100%;
+}
+
+header{
+    background-color: white;
+    height: 100px;
+    text-align: center;
+}
+header h1{
+    position: relative;
+    padding-top: 34px;
+}
+
+nav{
+    background-color:white;
+}
+nav td{
+    background-color: grey;
+}
+
+footer{
+    margin-top:100px;
+    position: absolute;
+    top:93%;
+    margin: auto;
+
+}
+
+article{
+
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
+
+ul {
+    
+    margin-left:20px;
+}
+
+.navb{
+    border:none;
+    background-color:transparent;
+}
+button{
+    margin-left:20px;
+    margin-right:20px;
+    border:none;
+    padding:none;
+    background-color: transparent;
+    font-size: 30px;
+    height:30px;
+}
+button:hover{
+    color:white;
+    background-color:black ;
+    
+}
+
+.lista {
+
+    font-size:25px;
+    margin-top: 80px;
+}
+
+.lista li{
+    margin-top: 16px;
+}
+
+
+
+#imgs{
+    margin-left: 75px;
+}
+
+footer img{
+    width:40px;
+    height:auto;
+}
+/* PAGINA PRINCIPAL */
+
+#galeria {
+    position:absolute;
+    margin-left: 900px;
+    margin-top:350px;
+
+}
+
+#galeria table,td{
+    text-align: center;
+
+}
+
+#galeria {
+    font-size:40px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+
+#galeria p{
+    color:white;
+    margin-top:20px;
+    margin-left: 20px;
+    position: absolute;
+
+}
+
+.galeria-min{
+    width: 200px;
+    height:200px;
+}
+
+.galeria-min:hover{
+    filter:brightness(50%);
+}
+.texto-inicial{
+    margin-top:40px;
+    text-align: center;
+    margin-bottom:40px;
+}
+.texto-inicial p {
+    font-size: 24px;
+}
+
+
+
+
+
+
+
+/* FORMULÁRIO*/
+
+form {
+    margin-top:24px;
+}
+
+#mensagem{
+
+    padding-left:8px;
+    border:solid black 2px;
+    
+    height:100px;
+    width:400px;
+}
+
+.caixa{
+    padding-left: 8px;
+    border:solid 2px black;
+    text-align: left;
+    width:400px;
+    height:30px;
+    margin-bottom: 24px;
+}
+
+#enviar-b{
+    border:solid black 1px;
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:24px;
+    padding:4px;
+}
+
+input {
+    margin:auto;
+    display:block;
+}
+
+/* amostra */
+
+.texto-de-amostra{
+    padding-left: 5px;
+    padding-right:5px ;
+    max-width: 500px;
+    color:222222;
+    border: solid #c4c4c4 10px;
+    width: auto;
+    position: absolute;
+    top:210px;
+    left:700px
+}
+.texto-de-amostra p{
+    margin: 10px;
+}
+.amostra{
+    position: absolute;
+    border: solid #c4c4c4 20px;
+    margin-top:80px;
+    margin-left:40px;
+    margin-bottom: 40px;
+    height:500px;
+    
+}
