@@ -90,7 +90,7 @@ body {
 }
 
 .black-block {
-   
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,7 +139,7 @@ body {
 
     }
     .black-block{
-        width: 300px;
+        width: 40vw;
     }
     #segundo-bloco{
 
