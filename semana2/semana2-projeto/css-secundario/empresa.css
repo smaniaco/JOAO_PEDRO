@@ -1,0 +1,315 @@
+* {
+    margin:0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+  
+   
+    background-image:url("../imagens/background-produtos.png");
+    background-size: cover;
+}
+
+
+
+
+
+main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3.5vh 1fr 1fr 1fr 1fr 1fr 3.5vh;
+}
+
+/*conteudo da main*/
+
+main h1 {
+    grid-column:3/7;
+    grid-row:2/3;
+    margin-left:4vw;
+}
+
+
+
+#empresa-foto{
+    grid-row: 2/4;
+    grid-column: 2/3;
+    height: 30vh;
+    filter: drop-shadow(20px 20px 4px gray);
+}
+
+#empresa-foto2 {
+    grid-row: 5/7;
+    grid-column: 2/3;
+    height: 30vh;
+    filter: drop-shadow(20px 20px 4px gray);
+}
+
+
+
+
+
+#titulo-do-texto{
+    color:#222222;
+    align-self: end;
+    margin-left:4vw;
+    margin-bottom: 5px;
+    grid-row: 3/4;
+    grid-column:3/7;
+}
+
+#primeiro-texto{
+    animation-duration: 3s;
+    animation-name: fadein;
+    border-radius: 5px;
+    padding: 5px;
+    color:#c4c4c4;
+    background-color: #363B40;
+    font-size: 20px;
+    margin-left:4vw;
+    grid-row: 4/5;
+    grid-column:3/7;
+}
+
+#titulo-do-texto2{
+    align-self: end;
+    color:#222222;
+    margin-left:4vw;
+    margin-bottom:5px;
+    grid-column:3/7;
+    grid-row: 5/6;
+
+}
+
+#segundo-texto{
+    border-radius: 5px;
+    animation-duration: 3s;
+    animation-name: fadein;
+    font-size: 20px;
+    color:#c4c4c4;
+    background-color: #363B40;
+    margin-left:4vw;
+    
+    padding: 5px;
+    grid-row:6/7;
+    grid-column:3/7
+}
+
+
+
+button {
+ 
+    background-color: #363B40; 
+    border: none;
+    border-radius:10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+
+header{
+    background-image: url("../imagens/bar-background.png");
+    background-color: #D0D7D9;
+    display: flex;
+    align-items: center;
+    height:10vh;
+    width: 100%;
+    background-color: #D0D7D9;
+}
+
+/*Estiliza os elementos do header*/
+
+nav{
+    margin-left: 32px;
+    display: flex;
+}
+
+header h2{
+    margin-left:16px;
+}
+
+header h2 a{
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+header #logo{
+    margin-left:4vw;
+    height: 10.5vh;
+}
+
+header h2:hover{
+    text-decoration: underline;
+}
+
+footer {
+    background-size: cover;
+    background-image: url("../imagens/bar-background.png");
+    background-color: #D0D7D9;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    background-color: #D0D7D9;
+}
+
+/* define os detalhes dos icones no footer*/
+
+
+#redes-sociais{
+    margin-left: 4vw;
+}
+
+#redes-sociais img {
+
+    margin-right: 1vw;
+    height: 4vh;
+
+}
+
+
+
+
+
+/*animações*/
+@keyframes fadein {
+    from {
+      opacity: 0.1;
+
+    }
+  
+    to {
+      opacity: 1.0;
+   
+    }
+  }
+
+
+
+@media screen and (max-device-width : 901px) {
+    
+    
+    header{
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+        width: 100%;
+        margin-right: 10px;
+        font-size: 8px;
+    }
+    
+    header #logo{
+   
+        margin-left:0;
+        
+    }
+    
+    header h2{
+        margin-left:4px;
+    }
+    
+    nav {
+        margin:0;
+    }
+    
+    main{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 5vh 10vh 1fr 10vh 1fr 1fr 10vh 1fr 4vh;
+        row-gap: 1vh;
+    }
+    
+    
+    main h1 {
+        justify-self: center;
+        margin-top:4vh;
+        grid-column:1/-1;
+        grid-row:1/2;
+        margin-left:0vw;
+    }
+
+    #titulo-do-texto{
+        color:#222222;
+        justify-self: center;
+        margin-left:0;
+        margin-bottom: 5px;
+        grid-row: 4/5;
+        grid-column:1/-1;
+    }  
+    
+    #primeiro-texto{
+        width:80vw;
+        animation-duration: 3s;
+        animation-name: fadein;
+        border-radius: 5px;
+        justify-self: center;
+        margin-left: 0;
+        padding: 5px;
+        color:#c4c4c4;
+        background-color: #363B40;
+        font-size: 20px;
+        grid-row: 5/6;
+        grid-column:1/-1;
+    }
+
+
+    #titulo-do-texto2{
+        justify-self: center;
+        color:#222222;
+        margin-left:0;
+        margin-bottom:5px;
+        grid-column:1/-1;
+        grid-row: 7/8;
+    
+    }
+    
+    #segundo-texto{
+        justify-self: center;
+        width:80vw;
+        border-radius: 5px;
+        animation-duration: 3s;
+        animation-name: fadein;
+        font-size: 20px;
+        color:#c4c4c4;
+
+        background-color: #363B40;
+        margin-left:0;
+        padding: 5px;
+        grid-row:8;
+        grid-column:1/-1;
+    }
+    
+    #empresa-foto{
+        justify-self: center;
+        
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        height: 20vh;
+        filter: drop-shadow(15px 15px 4px gray);
+    }
+    
+    #empresa-foto2 {
+        justify-self: center;
+        grid-row: 6/7;
+        grid-column: 1/-1;
+        height: 20vh;
+        filter: drop-shadow(15px 15px 4px gray);
+    }
+    
+
+}
+
+
+
+
