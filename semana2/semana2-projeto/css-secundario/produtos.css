@@ -1,0 +1,250 @@
+* {
+    margin:0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+   
+    background-image:url("../imagens/background-produtos.png");
+    background-size: 100vw;
+    min-height: 100vh;
+}
+
+
+/*elementos da main*/
+
+main{
+    padding-top: 32px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+main img{
+    border-radius: 10px;
+    animation-duration: 3s;
+    animation-name: slidein;
+
+    width: 40vw;
+}
+
+
+
+main img:hover{
+    margin-left:-100px;
+    transition: 1s linear;
+   
+
+}
+
+
+
+.item-info{
+  
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-top:-60px;
+    margin-left:400px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #403C36;
+    color:#c4c4c4;
+    width: 40vw;
+    margin-bottom: 40px;
+    
+}
+
+.item-info:hover{
+    transition: 2s linear;
+    margin-left:0;
+}
+
+
+button:hover {
+    position: relative;
+    opacity: 1.0;
+    transition: all 0.5s;
+    background-color: #9CA3A6; 
+
+}
+
+button:focus {
+    opacity: 1.0;
+    transition: all 1s;
+    color:black;
+    background-color: #9CA3A6; 
+
+
+}
+
+
+button {
+
+    align-self: flex-end;
+    text-align: center;
+    width: 10vw;
+    height:5vh;
+    background-color: #D0D7D9; 
+    border: none; 
+    border-radius:10px;
+    color: #222222;
+    padding: auto;
+    text-align: center;
+    font-size: 16px;
+  }
+
+
+header{
+    background-image: url("../imagens/bar-background.png");
+    background-color: #D0D7D9;
+    display: flex;
+    align-items: center;
+    height:10vh;
+    width: 100%;
+    background-color: #D0D7D9;
+}
+
+/*Estiliza os elementos do header*/
+
+nav{
+    margin-left: 32px;
+    display: flex;
+}
+
+header h2{
+    margin-left:16px;
+}
+
+header h2 a{
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+header #logo{
+    margin-left:4vw;
+    height: 10.5vh;
+}
+
+header h2:hover{
+    text-decoration: underline;
+}
+
+footer {
+    background-size: cover;
+    background-image: url("../imagens/bar-background.png");
+    background-color: #D0D7D9;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    background-color: #D0D7D9;
+}
+
+/* define os detalhes dos icones no footer*/
+
+
+#redes-sociais{
+    margin-left: 4vw;
+}
+
+#redes-sociais img {
+
+    margin-right: 1vw;
+    height: 4vh;
+
+}
+
+/*animações*/
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+    
+    }
+  
+    to {
+      margin-left: 0%;
+      
+    }
+  }
+
+
+
+
+
+
+
+@media screen  and (max-device-width : 802px) {
+    /* header */
+    
+    header{
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+        width: 100%;
+        margin-right: 10px;
+        font-size: 8px;
+    }
+    
+    header #logo{
+   
+        margin-left:0;
+        
+    }
+    
+    header h2{
+        margin-left:4px;
+    }
+    
+    nav {
+        margin:0;
+    }
+
+
+    .item-info{
+  
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        margin-top:0;
+        margin-left:0;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #403C36;
+        color:#c4c4c4;
+        width: 80vw;
+        margin-bottom: 40px;
+        
+    }
+
+    .item-info button{
+        margin-top:20px;
+        width: 100%;
+    }
+
+    main img{
+        border-radius: 10px;
+        animation-duration: 3s;
+        animation-name: slidein;
+        margin-bottom: 16px;
+        width: 80vw;
+    }
+    
+
+
+}
+
