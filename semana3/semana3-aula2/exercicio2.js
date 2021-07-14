@@ -1,4 +1,4 @@
-num = Number(prompt("Digite um numero par"))
+const num = Number(prompt("Digite um numero par"))
 
 result = num % 2
 
