@@ -31,6 +31,7 @@ switch (gamePhase) {
         preco = 220.0;
         break;
     }
+    break;
   case "DT":
     gamePhase = "Decisao do terceiro lugar";
     switch (category) {
@@ -47,6 +48,8 @@ switch (gamePhase) {
         preco = 170.0;
         break;
     }
+    break
+
   case "FL":
     gamePhase = "Final";
     switch (category) {
@@ -63,6 +66,7 @@ switch (gamePhase) {
         preco = 330.0;
         break;
     }
+    break
 }
 
 if (gameType === "IN") {
