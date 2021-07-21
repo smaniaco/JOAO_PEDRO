@@ -1,0 +1,568 @@
+* {
+    margin:0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body{
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
+
+
+
+main{
+    width: 100%;
+    height: 100vh;
+
+
+
+    
+}
+
+button {
+ 
+    background-color: #363B40; /* Green */
+    border: none;
+    border-radius:10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+
+header{
+    background-image: url("imagens/bar-background.png");
+    background-color: #D0D7D9;
+    display: flex;
+    align-items: center;
+    height:10vh;
+    width: 100%;
+    
+}
+
+/*Estiliza os elementos do header*/
+
+nav{
+    margin-left: 32px;
+    display: flex;
+}
+
+header h2{
+    margin-left:16px;
+}
+
+header h2 a{
+
+
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+header #logo{
+    margin-left:4vw;
+    height: 10.5vh;
+}
+
+header h2:hover{
+    text-decoration: underline;
+}
+
+footer {
+    background-image: url("imagens/bar-background.png");
+    background-color: #D0D7D9;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    background-color: #D0D7D9;
+}
+
+/* define os detalhes dos icones no footer*/
+
+
+#redes-sociais{
+    margin-left: 4vw;
+}
+
+#redes-sociais img {
+
+    margin-right: 1vw;
+    height: 4vh;
+
+}
+
+
+
+/*primeira mensagem que o cliente ve ao entrar no site*/
+
+
+
+#mensagem-de-boas-vindas{
+    height: 80vh;
+
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10%  10% 10% ;
+    grid-template-rows: 20% 20% 20% 20% 20% ;
+}
+
+#mensagem-de-boas-vindas button:hover {
+    margin-left:5px;
+    opacity: 1.0;
+    transition: all 1s;
+    background-color: #9CA3A6; /* Green */
+
+}
+#mensagem-de-boas-vindas button:focus {
+    opacity: 1.0;
+    transition: all 1s;
+    color:black;
+    background-color: #9CA3A6; /* Green */
+
+}
+
+
+
+
+#sapato-video{
+
+    margin-top:80px;
+    width: 40vw;
+    height: 65vh;
+    grid-column: 6/7;
+
+}
+#moonstep{
+    width: 20vw;
+    transform: rotate(-25deg); 
+    position: absolute;
+    left:50vw;
+    top:20vh;
+}
+
+#texto-boas-vindas{
+    display: flex;
+    flex-direction: column;
+    
+    grid-row:2/3;
+    grid-column:2/6;
+  
+}
+
+
+
+#texto-boas-vindas h1, #texto-boas-vindas h3{
+    margin-bottom:5px;
+    color: #222222;
+}
+
+
+
+
+
+/*Estilza as imagens da primeira mensagem do site*/
+
+#sapato-foto-1{
+    border-radius: 15px;
+    margin-top:80px;
+    width: 20vw;
+  
+    transition: all 1s;
+
+
+    grid-row:3;   
+    grid-column:2/3;
+}
+
+#sapato-foto-1:hover{
+    filter:drop-shadow(20px 10px 4px #363B40);
+}
+
+#sapato-foto-2{
+    border-radius: 15px;
+    transition: all 1s;
+    width: 20vw;
+    margin-top:120px;
+    grid-row: 3;
+    grid-column:3/4;
+}
+
+#sapato-foto-2:hover{
+    filter:drop-shadow(20px 10px 4px #363B40);
+}
+
+
+/*segunda sessão*/
+
+
+
+#fundo-cinza-degrade{
+    width: 100%;
+    height: 40vh;
+
+}
+
+/*parte de baixo da página*/
+
+#gradiente{
+    height: 20vh;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(64,60,54,1));
+}
+
+section{
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    background-color:rgba(64,60,54,1) ;
+}
+
+#tenis{
+
+    border-radius: 10%;
+    
+    height: 60vh;
+}
+
+
+
+#texto-parte-de-baixo{
+    width:40vw;
+    display: flex;
+    margin-top: 300px;
+    margin-left:-400px;
+    justify-content: center;
+    padding:10px;
+    font-size: 20px;
+    flex-direction: column;
+    height: 20vh;
+    border-radius: 10px;
+    background-color: #D0D7D9;
+   
+}
+#texto-parte-de-baixo p{
+  
+    height: 20vh;
+    font-size: 14px;
+}
+
+#fique-atento{
+    
+    align-self: center;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 14px;
+    background-color: #D0D7D9;
+    border-radius:10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom:10px;
+   
+}
+
+#fique-atento p{
+    width:15vw;
+    height: 40vh;
+}
+
+#fique-atento button{
+    margin-top:16px;
+}
+
+#fique-atento h1{
+    margin-bottom:16px;
+}
+
+
+
+
+
+@media screen and (max-device-width : 420px) {
+/* celulares */
+
+/* header */
+header{
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    margin-right: 10px;
+    font-size: 8px;
+}
+
+header #logo{
+
+    margin-left:0;
+    
+}
+
+header h2{
+    margin-left:4px;
+}
+
+nav {
+    margin:0;
+}
+
+
+/* main */
+main {
+    height:60vh;
+}
+
+
+
+
+#mensagem-de-boas-vindas{
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% ;
+    grid-template-rows:  20% 20% 20%  20% 20%;
+}
+
+
+#fique-atento P{
+    height: 20vh;
+    width:40vw;
+}
+
+
+
+#texto-boas-vindas{
+   
+    font-size: 8px;
+    grid-row:2/3;
+    grid-column:2/5;
+  
+}
+#texto-boas-vindas button{
+    white-space: nowrap;
+    font-size:8px;
+}
+
+#sapato-video{
+    margin-top:80px;
+    height: 25vh;
+    grid-row:2/4;
+    grid-column: 6/8;
+
+}
+
+#sapato-foto-1{
+    border-radius: 15px;
+    margin-top:50px;
+ 
+}
+
+#sapato-foto-2{
+    border-radius: 15px;
+    margin-top:60px;
+ 
+}
+#moonstep{
+    width: 35vw;
+    left:50vw;
+    top:30vh;
+}
+
+
+
+/*Sessão de baixo*/
+
+section{
+    justify-content: space-evenly;
+}
+
+#tenis{
+ 
+    width: 40vw;
+ 
+    border-radius: 10%;
+    height: auto;
+    
+  
+}
+#texto-parte-de-baixo{
+    
+ 
+
+    margin-top:0;
+    margin-left:0;
+
+
+    font-size: 12px;
+ 
+    height: 25vh;
+    border-radius: 10px;
+    background-color: #D0D7D9;
+   
+}
+
+
+#texto-parte-de-baixo p{
+    font-size: 9px;
+    width: 30vw;
+    height: 30vh;
+ 
+}
+
+#texto-parte-de-baixo h1{
+    font-size: 12px
+}
+
+
+#fique-atento{
+    font-size: 10px;
+    width: 50vw;
+    margin-left:0;
+    
+}
+
+
+  
+    
+
+
+
+
+}
+@media screen and (min-device-width : 421px) and (max-device-width : 802px) {
+/* tablets */
+
+    /*Header*/
+    header{
+        justify-content: center;
+        flex-wrap: wrap;
+        height: auto;
+        width: 100%;
+        margin-right: 10px;
+        font-size: 8px;
+    }
+    
+    header #logo{
+   
+        margin-left:0;
+        
+    }
+    
+    header h2{
+        margin-left:4px;
+    }
+    
+    nav {
+        margin:0;
+    }
+
+    /*Main*/
+    #mensagem-de-boas-vindas{
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% ;
+        grid-template-rows:  20% 20% 20% ;
+    }
+
+    #texto-boas-vindas{
+        font-size: 10px;
+        grid-row:2/3;
+        grid-column:2/5;
+      
+    }
+    #texto-boas-vindas button{
+        font-size:8px;
+    }
+
+    #moonstep{
+        width: 35vw;
+        left:50vw;
+        top:30vh;
+    }
+
+    #sapato-video{
+        margin-top:80px;
+        height: 40vh;
+        grid-row:2/4;
+        grid-column: 6/8;
+    
+    }
+
+    #sapato-foto-1{
+        border-radius: 15px;
+        margin-top:50px;
+     
+    }
+
+    #sapato-foto-2{
+        border-radius: 15px;
+        margin-top:60px;
+     
+    }
+
+
+    /*Sessão de baixo*/
+
+    #tenis{
+     
+        width: 40vw;
+        border-radius: 10%;
+        height: auto;
+        
+      
+    }
+    #texto-parte-de-baixo{
+        
+     
+  
+        margin-top:0;
+        margin-left:0;
+   
+    
+        font-size: 12px;
+     
+        height: 20vh;
+        border-radius: 10px;
+        background-color: #D0D7D9;
+       
+    }
+
+    section{
+        justify-content: space-evenly;
+    }
+    #texto-parte-de-baixo p{
+        font-size: 9px;
+        width: 30vw; 
+    }
+
+    #fique-atento{
+        margin-left:0;
+        width: 50vw;
+        
+    }
+
+    #fique-atento p{
+        height: 20vh;
+        width:40vw;
+    }
+    
+    
+    
+    
+    
+
+}
