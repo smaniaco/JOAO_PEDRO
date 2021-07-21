@@ -51,8 +51,7 @@ while (loop === 0) {
       /*Sistema de compra de cartas*/
       while (draw) {
         
-        console.log(`Primeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints} a carta revelada do segundo jogador é ${secondPlayer[0].texto}, [CARTA SECRETA]\n
-               Deseja comprar mais uma carta?`);
+        console.log(`======================\nPrimeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints}\nComputador - cartas: ${secondPlayer[0].texto}, [CARTA SECRETA]\nDeseja comprar mais uma carta?\n======================`);
         /*Player 1 compra*/
         if (confirm("COMPRAR?")) {
           const newCard = comprarCarta();
@@ -64,22 +63,22 @@ while (loop === 0) {
           }
         } else {
           /*Caso o player 1 nao estoure e se recuse a comprar o computador compra cartas ate estourar ou chegar a 21 */
-          if (firstPlayerPoints < 22)
-            while (secondPlayerPoints < 21 || secondPlayerPoints < firstPlayerPoints){
-              console.log("Agora é a vez do computador comprar as cartas")
+          draw = false;
+        }
+        
+        
+      }
+      if (firstPlayerPoints < 22)
+            while (secondPlayerPoints < 21 && secondPlayerPoints < firstPlayerPoints){
+              console.log("=====Agora é a vez do computador comprar as cartas=====")
               const newCard = comprarCarta()
               secondPlayer.push(newCard)
               secondPlayerPoints += newCard.valor
               addCardsC += `,${newCard.texto} `
-              console.log("pontos segundo" + secondPlayerPoints)
             }
-          draw = false;
-        }
 
-        
-      }
       console.log(
-        `Resultado final\nPrimeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints} a carta revelada do segundo jogador é ${secondPlayer[0].texto}, ${secondPlayer[1].texto} ${addCardsC}`
+        `======================\nResultado final\nPrimeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints}\nComputador - cartas: ${secondPlayer[0].texto}, ${secondPlayer[1].texto} ${addCardsC} Pontuação: ${secondPlayerPoints}\n====================== `
       );
       /* Nome do vencedor */
       let winner = ''
@@ -100,6 +99,7 @@ while (loop === 0) {
         winner = 'Computador  venceu'
       } else if (firstPlayerPoints === secondPlayerPoints) {
         console.log("EMPATE");
+        winner = 'empate'
       } else if (
         firstPlayerPoints > secondPlayerPoints &&
         firstSelfLoss == false
@@ -114,7 +114,7 @@ while (loop === 0) {
         winner = 'Computador venceu'
       }
       alert(
-        `Resultado final\nPrimeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints} as cartas do computador são ${secondPlayer[0].texto}, ${secondPlayer[1].texto}  ${addCardsC}, a pontuação é ${secondPlayerPoints}\n${winner}`
+        `Resultado final\nPrimeio jogador - cartas: ${firstPlayer[0].texto}, ${firstPlayer[1].texto} ${addCards}  Pontuação: ${firstPlayerPoints}\nComputador - cartas: ${secondPlayer[0].texto}, ${secondPlayer[1].texto}  ${addCardsC}, Pontuação: ${secondPlayerPoints}\n${winner}`
       );
     } else {
       console.log(
