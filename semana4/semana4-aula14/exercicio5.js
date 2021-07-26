@@ -16,6 +16,8 @@ const func2 = (num1, num2) => {
     }
 }
 
+func2(3,3)
+
 const func3 = (string) => {
     for (let i = 0;i<10; i++) {
         console.log(string)
