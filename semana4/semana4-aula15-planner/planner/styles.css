@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form{
+    display: flex;
+}
+
+section {
+    display: flex;
+    justify-content: space-evenly;
+    height: 90vh;
+}
+
+.semana {
+    border: 1px dotted rgb(53, 53, 53);
+    width: 14%;
+    padding: 5px;
+    overflow-wrap: break-word;
+
+}
+
+
+
+
+
+
+
+@media  screen and (max-width: 800px) {
+
+    body{
+        display:flex;
+        flex-direction: column;
+    }
+    header{
+        height: 30vh;
+
+    }
+
+    #tarefa {
+        width:100%;
+        height: 5vh;
+        font-size:20px;
+        margin-bottom:5px;
+    }
+    form{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    button{
+        font-size:20px;
+        width: 50%;
+        height: 50px;
+    }
+    select {
+        font-size:20px;
+        width:50%;
+        margin-bottom: 5px;
+    }
+
+    section  {
+        width:100%;
+        flex-direction: column;
+    }
+    section div {
+        width: 100%;
+    }
+
+    .semana {
+
+        width: 100%;
+    }
+
+    .semana h3{
+        text-align: center;
+    }
+
+    #botoes{
+       
+        display:flex;
+        width:100%;
+   
+    }
+}
