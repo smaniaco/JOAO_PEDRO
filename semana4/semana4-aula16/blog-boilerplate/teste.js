@@ -19,7 +19,7 @@ console.log(postsplit[7])
 if (postsplit[7].includes("https") && (postsplit[7].includes(".png")) || postsplit[7].includes(".jpg")) {
     
 
-    sessao.innerHTML += `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pedro_Castillo.jpg/800px-Pedro_Castillo.jpg">`
+    sessao.innerHTML += `<img src="${postsplit[7]}">`
 }
 
 
