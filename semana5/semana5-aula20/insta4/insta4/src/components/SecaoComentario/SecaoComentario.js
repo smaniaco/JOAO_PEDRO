@@ -7,6 +7,7 @@ const CommentContainer = styled.div`
     padding: 5px;
 `
 
+
 const InputComentario = styled.input`
     width: 100%;
     margin-right: 5px;
@@ -19,9 +20,12 @@ export class SecaoComentario extends Component {
 	componentDidUpdate() {
 		console.log(this.state.comentario)
 	}
+
 	onChangeComentario = (event) =>  {
 		this.setState({comentario : event.target.value})
+		this.props.parentCallback(event.target.value)
 	}
+	
 
 	render() {
 		return <CommentContainer>
