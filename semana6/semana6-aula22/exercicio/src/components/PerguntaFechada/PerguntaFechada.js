@@ -15,8 +15,10 @@ export class PerguntaFechada  extends React.Component  {
         
     render(){
         const selecionar = this.props.selecao
-        const selecaoSolucionada = selecionar.map((tag)=>{
-            return <option key = {Math.random()}>{tag}</option>
+        const selecaoSolucionada = selecionar.map((tag, index)=>{
+            console.log(index)
+            return <option key = {index}>{tag}</option>
+            
         })
         return <div className="perguntaFechada">
 
