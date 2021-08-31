@@ -4,20 +4,27 @@ import { SiteCart } from "./components/Carrinho/Carrinho"
 import { Filtro } from "./components/Filtro/Filtro"
 import FloatingWhatsApp from 'react-floating-whatsapp'
 import 'react-floating-whatsapp/dist/index.css'
+
 import './App.css'
+
 
 
 
 const DivPage = styled.div`
 
 `
+const DivDooter = styled.div`
+  height:10vh;
+  background-color: grey;
+`
 
 const DivDisplay = styled.div`
   display:grid;
   grid-template-columns: 10% 10% 60% 10% 10%;
   grid-template-rows: 10% 80% 10% ;
-  width:100vw;
-  min-height:90vh;
+  margin-bottom: 5vh;
+
+
 
 `
 const DivPrincipal = styled.div`
@@ -28,7 +35,7 @@ const DivPrincipal = styled.div`
   grid-template-rows: 10% 10% 10% 10% 10% 0% 10% 10% 10% 10%;
   column-gap:1vw;
   width:100%;
-  min-height:80vh;
+
   
 `
 const DivProdutos = styled.div`
@@ -41,8 +48,8 @@ const DivProdutos = styled.div`
   width:100%;
   border:solid 1px black;
   border-radius: 5px;
-  min-height:40vh;
-  max-height:100vh;
+ 
+ 
 
 
 `
@@ -99,6 +106,8 @@ const DivHeader =styled.div`
   height:8vh;
   margin-bottom:2vh;
 `
+
+
 
 
 class App extends React.Component {
@@ -265,7 +274,7 @@ class App extends React.Component {
     )
     
     const items = filteredItems.map((produto)=>{
-      return<DivProduto>
+      return<DivProduto key ={produto.id}>
           <Image src="https://picsum.photos/200/200?a=1"/>
           <TextoProduto>
           <h3>{produto.name}</h3>
@@ -276,6 +285,7 @@ class App extends React.Component {
     })
     return <DivPage>
       <DivHeader/>
+      
       <DivDisplay>
 
     <DivPrincipal>
@@ -304,8 +314,10 @@ class App extends React.Component {
       <SiteCart deleteProd= {this.deleteProd.bind(this)} carrinho= {this.state.carrinho}/>
      
       </DivPrincipal>
+      
       </DivDisplay>
       <FloatingWhatsApp phoneNumber = {"5511995770880"}accountName = {"CriadorDoSite"} chatMessage={"Olá, como posso ajudar?"} placeholder={"Digite uma mensagem..."} allowClickAway= {true} className={'WppVoador'} statusMessage= {"Normalmente responde em uma hora"}/>
+      <DivDooter/>
       </DivPage>
     ;
   }

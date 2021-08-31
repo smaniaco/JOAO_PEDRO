@@ -17,7 +17,7 @@ const CartProducts = styled.div`
   grid-column: 9/11;
   grid-row: 1/9;
   width: 100%;
-  min-height:70vh;
+  min-height:75vh;
   border-radius: 5px;
   border: solid 1px black;
 `;
@@ -71,7 +71,7 @@ export class SiteCart extends React.Component {
         totalPrice += product.price * product.quantity;
 
         return (
-          <Product>
+          <Product key ={product.id}>
             <h3>{product.name}</h3>
             <h3>R${product.price}</h3>
             <h4>Quantidade: {product.quantity}</h4>

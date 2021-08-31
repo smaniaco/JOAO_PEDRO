@@ -9,6 +9,8 @@ const  Filter = styled.div`
   & > input {
     border-radius: 5px;
   }
+  min-height:75vh;
+
   background-color:#fbfbfb;
   grid-column:1/3;
   grid-row:1/9 ;
