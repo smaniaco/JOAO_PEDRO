@@ -3,21 +3,35 @@ import styled from "styled-components"
 
 
 const  Filter = styled.div`
+  & > h1 {
+    text-align:center;
+  }
+  & > input {
+    border-radius: 5px;
+  }
+  background-color:#fbfbfb;
   grid-column:1/3;
   grid-row:1/9 ;
   width:100%;
-  
+  border-radius: 5px;
   border:solid 1px black;
 
 `
-const Product = styled.div`
-  
 
+const DivFContent = styled.div`
+  & > input{
+    width:80%;
+  }
+  display:flex;
+  flex-direction:column;
+  margin-left:10px;
 `
+
+
 
 export class Filtro extends React.Component {
   state = {
-    valMin :100,
+    valMin :10,
     valMax :1000,
     prodName:"produto"
 
@@ -41,12 +55,15 @@ export class Filtro extends React.Component {
     
     return <Filter>
       <h1>Filtro</h1>
+      <DivFContent>
+      
         <p>Valor Minimo</p>
         <input onChange={this.onChangeMin.bind(this)} type="number" value={ this.state.valMin }/>
         <p>Valor Máximo</p>
         <input onChange={this.onChangeMax.bind(this)} type="number" value={ this.state.valMax }/>
         <p>Nome do Produto</p>
         <input onChange={this.onChangeProdName.bind(this)} type="text" value={ this.state.prodName }/>
+        </DivFContent>
       </Filter>
       ;
   }

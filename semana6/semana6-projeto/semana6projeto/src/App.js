@@ -2,26 +2,37 @@ import React from "react";
 import styled from "styled-components"
 import { SiteCart } from "./components/Carrinho/Carrinho"
 import { Filtro } from "./components/Filtro/Filtro"
+import FloatingWhatsApp from 'react-floating-whatsapp'
+import 'react-floating-whatsapp/dist/index.css'
+import './App.css'
+
+
+
+const DivPage = styled.div`
+
+`
 
 const DivDisplay = styled.div`
   display:grid;
   grid-template-columns: 10% 10% 60% 10% 10%;
   grid-template-rows: 10% 80% 10% ;
   width:100vw;
+  min-height:90vh;
 
 `
 const DivPrincipal = styled.div`
   grid-column:2/5;
-  grid-row:1/3;
+  grid-row:1/-1;
   display:grid;
   grid-template-columns: 10% 10% 10% 10% 10% 0% 10% 10% 10% 10%;
   grid-template-rows: 10% 10% 10% 10% 10% 0% 10% 10% 10% 10%;
   column-gap:1vw;
   width:100%;
-  height:100vh;
+  min-height:80vh;
   
 `
 const DivProdutos = styled.div`
+  background-color:#fbfbfb;
   display:flex;
   flex-direction:column;
   align-items: center;
@@ -29,7 +40,9 @@ const DivProdutos = styled.div`
   grid-row:1/-1;
   width:100%;
   border:solid 1px black;
-  min-height:70%;
+  border-radius: 5px;
+  min-height:40vh;
+  max-height:100vh;
 
 
 `
@@ -41,17 +54,21 @@ const DivCompraveis = styled.div`
 `
 const DivProduto = styled.div`
   display:flex;
+  width:30%;
   flex-direction:column;
   align-items: center;
   margin:10px;
+  border-radius:5px;
   border:solid 1px black;
   padding:10px;
 
 `
 const TextoProduto = styled.div`
   & > h3 ,h4{
+    display:inline-block;
     margin:10px;
     font-weight:normal;
+    font-size:1.2vw;
   }
   display:flex;
   flex-direction: column;
@@ -62,8 +79,25 @@ const Image = styled.img`
 
 `
 const BotaoCompra = styled.button`
+  background:linear-gradient(90deg, rgba(52,131,250,1) 0%, rgba(106,165,255,1) 100%);
+  color:white;
   justify-self: center;
+  border:none;
+  padding:5px;
+  &:hover {
+    background:linear-gradient(90deg, rgba(86,151,249,1) 0%, rgba(115,171,255,1) 100%);
+  }
+  &:active {
+    background: linear-gradient(90deg, rgba(32,84,162,1) 0%, rgba(50,79,122,1) 100%);
+  }
+ 
 
+`
+
+const DivHeader =styled.div`
+  background-color:red;
+  height:8vh;
+  margin-bottom:2vh;
 `
 
 
@@ -84,7 +118,7 @@ class App extends React.Component {
   ],
     carrinho: [],
 
-    filter: [100,
+    filter: [10,
       1000,
       "produto"]
   }
@@ -95,46 +129,94 @@ class App extends React.Component {
   FuncComprar (id){
     let listaProdutos
     let novaLista = this.state.carrinho
+    let trigger = false
+    if (novaLista !== null){
+    for (let x of novaLista){
+      if (x.id === id){
+        trigger = true
+      }
+    }
+  }
     
     if (this.state.carrinho){
     listaProdutos = this.state.carrinho.find(produto => id === produto.id)
     }
-    if (listaProdutos){
-      const novoProdutoCarrinho = this.state.carrinho.map(produto => {
-        if (id === produto.id) {
+    if (novaLista && trigger === true){
+      console.log("teste nova lista", novaLista)
+      const novoProdutoCarrinho = this.state.carrinho.map((produto) => {
+        if (id === produto.id && produto.quantity >0 ) {
           return {
             ...produto,
             quantity: produto.quantity + 1,
           }
-        }
-
-        return produto
+        }else if (id !== produto.id){
+        return produto}
     })
     this.setState({carrinho: novoProdutoCarrinho })
   } else {
+    console.log("teste nova lista")
     const novoProduto = this.state.produtos.find(produto => id === produto.id)
-    console.log(this.state.carrinho)
+
     let novoProdutoCarrinho
-    if (!novaLista){
-      let nLista =[...novaLista, novoProduto]
+    if (novaLista === null){
+      console.log("teste nova lista", novaLista)
+      let nLista =[novoProduto]
       this.setState({ carrinho: nLista })
     }
    
     else{
+      console.log("teste nova lista 23", novaLista)
     novoProdutoCarrinho = [...novaLista,
-    {
+    { 
       ...novoProduto,
-      qntdCompra: 1,
+  
     }]
     this.setState({ carrinho: novoProdutoCarrinho })
-    console.log(this.state.carrinho)
+  
     }
     
     
   }
 
     
-    localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+  }
+  deleteProd(id){
+    console.log("deleteprod teste", id)
+    const newList = [...this.state.carrinho]
+    let filtrada
+    let exists = false
+    for (let x of newList){
+      if(x.id === id  && x.quantity == 1){
+        exists = true
+        filtrada = newList.filter((product)=>{
+          if (product.id === id){
+            return false
+          }
+          else{
+            return true
+          }
+        })
+      }
+    }
+    if (!exists){
+    const newUpdatedList = newList.map((product)=>{
+      if (product.id === id && product.price > 0){
+        return {...product,
+          quantity : product.quantity - 1
+        }
+      }
+      else{
+        return {...product}
+      }
+
+      }
+    )
+    this.setState({ carrinho: newUpdatedList})
+    }
+    else{
+      this.setState({carrinho:filtrada})
+    }
+
   }
   onChangeSelectFilter(event){
     const newProdList = this.state.produtos
@@ -164,6 +246,10 @@ class App extends React.Component {
     this.setState({carrinho:loadCarrinho})
    
   }
+  componentDidUpdate(){
+    localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+
+  }
   render() {
     
     const filteredItems = this.state.produtos.filter((produto)=>{
@@ -188,8 +274,10 @@ class App extends React.Component {
           <BotaoCompra onClick={()=>this.FuncComprar(produto.id)} >Comprar Produto</BotaoCompra>
         </DivProduto>
     })
-    return <DivDisplay>
-      
+    return <DivPage>
+      <DivHeader/>
+      <DivDisplay>
+
     <DivPrincipal>
       <Filtro checkFilter={this.checkFilter.bind(this)}>
         
@@ -213,10 +301,12 @@ class App extends React.Component {
       </DivCompraveis>
       </DivProdutos>
      
-      <SiteCart carrinho= {this.state.carrinho}/>
+      <SiteCart deleteProd= {this.deleteProd.bind(this)} carrinho= {this.state.carrinho}/>
      
       </DivPrincipal>
       </DivDisplay>
+      <FloatingWhatsApp phoneNumber = {"5511995770880"}accountName = {"CriadorDoSite"} chatMessage={"Olá, como posso ajudar?"} placeholder={"Digite uma mensagem..."} allowClickAway= {true} className={'WppVoador'} statusMessage= {"Normalmente responde em uma hora"}/>
+      </DivPage>
     ;
   }
 }
