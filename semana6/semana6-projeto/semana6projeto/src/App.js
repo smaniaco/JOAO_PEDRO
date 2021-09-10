@@ -42,9 +42,18 @@ const DivProdutos = styled.div`
   & > p{
     @media (min-width: 1300px) {
     font-size:2vw;
+    
+    
+  }
+  @media (max-width: 500px) {
+    font-size:3vw;
+    
+    
   }
   
   }
+  
+  
   & > select{
     @media (min-width: 1300px) {
     font-size:2vw;
@@ -99,9 +108,9 @@ const DivProduto = styled.div`
     width:20vw;
   }
   @media (min-width: 1300px) {
-    width:20vw;
+    width:18vw;
     padding:0px;
-    margin:10px 20px;
+    margin:10px 15px;
 
   }
   flex-direction:column;
@@ -123,11 +132,16 @@ const TextoProduto = styled.div`
     @media (min-width: 1300px) {
     font-size:2vw;
   }
+  @media (max-width: 800px) {
+    font-size:2vw;
+    
+    
+  }
     @media (max-width: 280px) {
     font-size:5vw;
     margin:0;
     padding:0;
-    text-align:center:
+    text-align:center;
     
   }
 
