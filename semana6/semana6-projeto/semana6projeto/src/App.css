@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-image:url("./images/background.svg");
+  
+}
+
+#root{
+  height:100vh;
+}
+
+.WppVoador{
+  position:absolute !important;
+  width:50px !important;
+  height:50px;
+}
