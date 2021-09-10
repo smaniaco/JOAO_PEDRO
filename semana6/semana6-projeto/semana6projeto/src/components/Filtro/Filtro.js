@@ -9,12 +9,13 @@ const  Filter = styled.div`
   & > input {
     border-radius: 5px;
   }
-  min-height:75vh;
+  min-height:50vh;
 
   background-color:#fbfbfb;
   grid-column:1/3;
   grid-row:1/9 ;
   width:100%;
+  height:20vh;
   border-radius: 5px;
   border:solid 1px black;
 
@@ -39,16 +40,36 @@ export class Filtro extends React.Component {
 
   }
   onChangeMin(event){
+    if (event !== ""){
     this.setState({valMin:event.target.value})
-    this.props.checkFilter([event.target.value,this.state.valMax, this.state.prodName])
+    this.props.checkFilter([Number(event.target.value),Number(this.state.valMax), this.state.prodName])
+    }else{
+      this.setState({valMax:event.target.value})
+      this.props.checkFilter([-9999999,Number(this.state.valMax), this.state.prodName])
+
+    }
   }
   onChangeMax(event){
+    console.log(event.target.value)
+    if (event.target.value.length !== 0){
+      console.log("foi")
     this.setState({valMax:event.target.value})
-    this.props.checkFilter([this.state.valMin,event.target.value, this.state.prodName])
+    this.props.checkFilter([Number(this.state.valMin),Number(event.target.value), this.state.prodName])
+    } else{
+      this.setState({valMax:event.target.value})
+      this.props.checkFilter([Number(this.state.valMin),99999999, this.state.prodName])
+
+    }
   }
   onChangeProdName(event){
+    if (event !== ""){
     this.setState({prodName:event.target.value})
-    this.props.checkFilter([this.state.valMin,this.state.valMax, event.target.value.toLowerCase()])
+    this.props.checkFilter([Number(this.state.valMin),Number(this.state.valMax), event.target.value.toLowerCase()])
+    }else{
+      this.setState({valMax:event.target.value})
+      this.props.checkFilter([Number(this.state.valMin),Number(this.state.valMax), this.state.prodName])
+
+    }
   }
 
   

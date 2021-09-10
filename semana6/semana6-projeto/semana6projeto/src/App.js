@@ -20,8 +20,8 @@ const DivDooter = styled.div`
 
 const DivDisplay = styled.div`
   display:grid;
-  grid-template-columns: 10% 10% 60% 10% 10%;
-  grid-template-rows: 10% 80% 10% ;
+  grid-template-columns: 1fr 1fr 60% 1fr 1fr;
+  grid-template-rows: 1fr  80% 1fr ;
   margin-bottom: 5vh;
 
 
@@ -32,7 +32,7 @@ const DivPrincipal = styled.div`
   grid-row:1/-1;
   display:grid;
   grid-template-columns: 10% 10% 10% 10% 10% 0% 10% 10% 10% 10%;
-  grid-template-rows: 10% 10% 10% 10% 10% 0% 10% 10% 10% 10%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 0% 1fr 1fr 1fr 1fr;
   column-gap:1vw;
   width:100%;
 
@@ -46,6 +46,8 @@ const DivProdutos = styled.div`
   grid-column: 3/9;
   grid-row:1/-1;
   width:100%;
+  min-height:100vh;
+
   border:solid 1px black;
   border-radius: 5px;
  
@@ -58,10 +60,12 @@ const DivCompraveis = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-left:auto;
+  margin-right:auto;
 `
 const DivProduto = styled.div`
-  display:flex;
-  width:30%;
+  display:inline-flex;
+  min-width:30%;
   flex-direction:column;
   align-items: center;
   margin:10px;
@@ -78,6 +82,7 @@ const TextoProduto = styled.div`
     font-size:1.2vw;
   }
   display:flex;
+  width:80%;
   flex-direction: column;
   align-items: flex-start;
 `
@@ -117,19 +122,27 @@ class App extends React.Component {
       price:13.50,
       id: 1,
       quantity: 1
-    },
+    },    
     {
-      name:"produto-generico",
+      name:"produto-Ruim",
       price:10,
       id: 2,
       quantity:1
     },
+    {
+      name:"produto meh",
+      price:16,
+      id: 3,
+      quantity:1
+    }
+    
   ],
     carrinho: [],
 
     filter: [10,
       1000,
-      "produto"]
+      "produto"],
+    prodQuantity: 0
   }
 
   
@@ -248,6 +261,7 @@ class App extends React.Component {
   checkFilter(filtro){
   
     this.setState({filter:filtro})
+    console.log(filtro)
   }
   
   componentDidMount(){
@@ -260,19 +274,29 @@ class App extends React.Component {
 
   }
   render() {
-    
-    const filteredItems = this.state.produtos.filter((produto)=>{
-      if ( produto.price >= this.state.filter[0] && produto.price <= this.state.filter[1] && produto.name.includes(this.state.filter[2])){
-
-        return true
-      }
-      else{
-      
-        return false
-      }
+    this.state.prodQuantity = 0
+    let filteredItems
+    console.log(this.state.filter, "testando123")
+    if (this.state.filter[0] === 0 && this.state.filter[1] === 0 && this.state.filter[2] === ""){
+      filteredItems = [...this.state.produtos]
     }
-    )
-    
+    else {
+        if (this.state.filter[1] === 0){
+          this.state.filter[1] = 99999999
+        }
+        console.log("fasdasdas")
+        filteredItems = this.state.produtos.filter((produto)=>{
+          if ( produto.price >= this.state.filter[0] && produto.price <= this.state.filter[1] && (produto.name.toLowerCase().includes(this.state.filter[2]))){
+            this.state.prodQuantity ++
+            return true
+          }
+          else{
+          
+            return false
+          }
+        }
+      )} 
+      console.log(filteredItems)
     const items = filteredItems.map((produto)=>{
       return<DivProduto key ={produto.id}>
           <Image src="https://picsum.photos/200/200?a=1"/>
@@ -293,7 +317,7 @@ class App extends React.Component {
         
       </Filtro>
       <DivProdutos>
-      <p>Quantidade de produtos {this.state.produtos.length}</p>
+      <p>Quantidade de produtos {this.state.prodQuantity}</p>
       
       <select onChange= {this.onChangeSelectFilter.bind(this)}>
         <option>

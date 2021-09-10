@@ -3,34 +3,32 @@ import styled from "styled-components";
 
 
 const CartProducts = styled.div`
-  & > p {
-    display:inline;
-
-    margin-right:10px;
-    align-self: flex-end;
-    justify-self:flex-end;
-  }
+  
+  display:grid;
+  grid-template-columns: 100%;
+  grid-template-rows:80% 20%;
   background-color:#fbfbfb;
-  display:flex;
-  flex-wrap:wrap;
-  flex-direction:column;
   grid-column: 9/11;
   grid-row: 1/9;
   width: 100%;
-  min-height:75vh;
+  height:100%;
+
   border-radius: 5px;
   border: solid 1px black;
 `;
 const Product = styled.div`
-  
+  font-size:0.9em;
   margin-left:10px;
   margin-right:10px;
+  margin-top:5px;
   margin-bottom:5px;
   width:15vw;
-  height:20vh;
+
 `;
 
 const Title = styled.h1`
+  text-align:center;
+
   align-self: center;
   font-size:2.5vw;
 `
@@ -51,8 +49,22 @@ const ButtonDelete = styled.button`
 `
 
 const DivProdList = styled.div`
-  height:70%;
+  display:flex;
+  flex-direction: column;
+  z-index:10;
+  
 
+`
+const Total = styled.div`
+  position:relative;
+  margin-top:15px;
+  box-sizing:border-box;
+  color:green;
+  padding-right:10px;
+  text-align:right;
+  align-self: center;
+
+  justify-content: flex-start;
 `
 
 export class SiteCart extends React.Component {
@@ -86,11 +98,16 @@ export class SiteCart extends React.Component {
       <CartProducts>
          
          
-        <Title>Produtos</Title>
+        
         <DivProdList>
+        <Title>Produtos</Title>
         {items}
         </DivProdList>
-        {totalPrice > 0 ? <p>R${totalPrice}</p> : ""}
+        
+        <Total>
+          {totalPrice > 0 ? <p>R${totalPrice}</p> : ""}
+        </Total>
+        
       </CartProducts>
       
     );
