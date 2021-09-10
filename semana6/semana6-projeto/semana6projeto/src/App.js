@@ -39,6 +39,19 @@ const DivPrincipal = styled.div`
   
 `
 const DivProdutos = styled.div`
+  & > p{
+    @media (min-width: 1300px) {
+    font-size:2vw;
+  }
+  
+  }
+  & > select{
+    @media (min-width: 1300px) {
+    font-size:2vw;
+  }
+  
+  }
+ 
   background-color:#fbfbfb;
   display:flex;
   flex-direction:column;
@@ -58,28 +71,57 @@ const DivProdutos = styled.div`
 const DivCompraveis = styled.div`
   display:flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:space-between;
+  @media (max-width: 656px) {
+    justify-content:center;
+  }
+  @media (min-width: 1300px) {
+    justify-content:center;
+
+  }
   flex-wrap: wrap;
+  padding:0 50px;
+  @media (max-width: 656px) {
+    padding:0;
+
+  }
+  @media (min-width: 1300px) {
+    padding:0;
+
+  }
   margin-left:auto;
   margin-right:auto;
 `
 const DivProduto = styled.div`
   display:inline-flex;
-  min-width:30%;
+  width:11vw;
+  @media (max-width: 656px) {
+    width:20vw;
+  }
+  @media (min-width: 1300px) {
+    width:30vw;
+    padding:0px;
+
+  }
   flex-direction:column;
   align-items: center;
-  margin:10px;
+  margin:10px 0;
   border-radius:5px;
   border:solid 1px black;
   padding:10px;
 
 `
 const TextoProduto = styled.div`
+  
+    
   & > h3 ,h4{
     display:inline-block;
     margin:10px;
     font-weight:normal;
     font-size:1.2vw;
+    @media (min-width: 1300px) {
+    font-size:2vw;}
+
   }
   display:flex;
   width:80%;
@@ -91,6 +133,9 @@ const Image = styled.img`
 
 `
 const BotaoCompra = styled.button`
+  @media (min-width: 1300px) {
+  font-size:2vw;
+  }
   background:linear-gradient(90deg, rgba(52,131,250,1) 0%, rgba(106,165,255,1) 100%);
   color:white;
   justify-self: center;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 const CartProducts = styled.div`
-  
+  font-size:2vw;
   display:grid;
   grid-template-columns: 100%;
   grid-template-rows:80% 20%;
@@ -12,6 +12,19 @@ const CartProducts = styled.div`
   grid-row: 1/9;
   width: 100%;
   height:100%;
+  @media (max-width: 656px) {
+    height:80%;
+
+  }
+  @media (max-width:  539px) {
+    height:70%;
+
+  }
+
+  @media (max-width: 457px) {
+    height:60%;
+
+  }
 
   border-radius: 5px;
   border: solid 1px black;
@@ -35,6 +48,11 @@ const Title = styled.h1`
 
 const ButtonDelete = styled.button`
   font-size:1.1vw;
+  
+  @media (max-width: 500px) {
+    width:80%;
+
+  }
   border:none;
   color:white;
   width:5vw;

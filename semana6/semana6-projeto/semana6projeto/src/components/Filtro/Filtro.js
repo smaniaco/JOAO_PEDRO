@@ -3,19 +3,42 @@ import styled from "styled-components"
 
 
 const  Filter = styled.div`
+
   & > h1 {
     text-align:center;
   }
   & > input {
     border-radius: 5px;
   }
-  min-height:50vh;
+  font-size:2vw;
+  min-height:20vh;
+  max-height: 60vh;
+  @media (max-width: 950px) {
+    max-height:70%;
 
+  }
+  @media (max-width: 800px) {
+    max-height:60%;
+
+  }
+  @media (max-width: 653px) {
+    max-height:50%;
+
+  }
+  @media (max-width: 500px) {
+    max-height:35%;
+
+  }
+  @media (max-width: 400px) {
+    max-height:30%;
+
+  }
+ 
   background-color:#fbfbfb;
   grid-column:1/3;
   grid-row:1/9 ;
   width:100%;
-  height:20vh;
+ 
   border-radius: 5px;
   border:solid 1px black;
 
@@ -23,11 +46,18 @@ const  Filter = styled.div`
 
 const DivFContent = styled.div`
   & > input{
+    font-size:0.9em;
     width:80%;
   }
+  height:80%;
   display:flex;
   flex-direction:column;
+  align-items:center;
   margin-left:10px;
+  @media (max-width: 550px) {
+    margin:0;
+
+  }
 `
 
 
