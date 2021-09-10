@@ -10,7 +10,7 @@ const  Filter = styled.div`
   & > input {
     border-radius: 5px;
   }
-  font-size:2vw;
+  font-size:1.7vw;
   min-height:20vh;
   max-height: 60vh;
   @media (max-width: 950px) {
@@ -53,7 +53,7 @@ const DivFContent = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-left:10px;
+  margin-left:0;
   @media (max-width: 550px) {
     margin:0;
 

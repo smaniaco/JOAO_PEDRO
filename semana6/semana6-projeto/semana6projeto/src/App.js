@@ -76,7 +76,7 @@ const DivCompraveis = styled.div`
     justify-content:center;
   }
   @media (min-width: 1300px) {
-    justify-content:center;
+    justify-content:space-between;
 
   }
   flex-wrap: wrap;
@@ -99,8 +99,9 @@ const DivProduto = styled.div`
     width:20vw;
   }
   @media (min-width: 1300px) {
-    width:30vw;
+    width:20vw;
     padding:0px;
+    margin:10px 20px;
 
   }
   flex-direction:column;
@@ -120,7 +121,15 @@ const TextoProduto = styled.div`
     font-weight:normal;
     font-size:1.2vw;
     @media (min-width: 1300px) {
-    font-size:2vw;}
+    font-size:2vw;
+  }
+    @media (max-width: 280px) {
+    font-size:5vw;
+    margin:0;
+    padding:0;
+    text-align:center:
+    
+  }
 
   }
   display:flex;
@@ -135,11 +144,21 @@ const Image = styled.img`
 const BotaoCompra = styled.button`
   @media (min-width: 1300px) {
   font-size:2vw;
+  margin-top:2vh;
+  margin-bottom:2vh;
+  border-radius:15px;
+  }
+  @media (max-width: 280px) {
+  font-size:3vw;
+  margin-top:2vh;
+  margin-bottom:2vh;
+  
   }
   background:linear-gradient(90deg, rgba(52,131,250,1) 0%, rgba(106,165,255,1) 100%);
   color:white;
   justify-self: center;
   border:none;
+  
   padding:5px;
   &:hover {
     background:linear-gradient(90deg, rgba(86,151,249,1) 0%, rgba(115,171,255,1) 100%);
