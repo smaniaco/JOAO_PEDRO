@@ -7,10 +7,21 @@ import "react-floating-whatsapp/dist/index.css";
 
 import "./App.css";
 
-const DivPage = styled.div``;
+const DivPage = styled.div`
+  height:100%;
+  
+`;
 const DivDooter = styled.div`
+ 
+
+ 
   height: 10vh;
   background-color: grey;
+  @media (max-width: 1300px) {
+     
+      top:50vh;
+    }
+
 `;
 
 const DivDisplay = styled.div`
@@ -39,10 +50,15 @@ const DivProdutos = styled.div`
   }
 
   & > select {
+    & >option{
+      font-size:1vw;
+    }
     @media (min-width: 1300px) {
-      font-size: 2vw;
+      font-size: 1.5vw;
     }
   }
+  
+  
 
   background-color: #fbfbfb;
   display: flex;
@@ -51,8 +67,8 @@ const DivProdutos = styled.div`
   grid-column: 3/9;
   grid-row: 1/-1;
   width: 100%;
-  min-height: 100vh;
-
+  min-height: 80%;
+  max-height: 100%;
   border: solid 1px black;
   border-radius: 5px;
 `;
@@ -69,10 +85,11 @@ const DivCompraveis = styled.div`
   flex-wrap: wrap;
   padding: 0 50px;
   @media (max-width: 656px) {
-    padding: 0;
+    padding: 0 15px;
   }
+ 
   @media (min-width: 1300px) {
-    padding: 0;
+    padding: 0 15px;
   }
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +98,7 @@ const DivProduto = styled.div`
   display: inline-flex;
   width: 11vw;
   @media (max-width: 656px) {
-    width: 20vw;
+    width: 26vw;
   }
   @media (min-width: 1300px) {
     width: 18vw;
@@ -105,8 +122,11 @@ const TextoProduto = styled.div`
     @media (min-width: 1300px) {
       font-size: 2vw;
     }
+    @media (max-width: 1300px) {
+      font-size: 1vw;
+    }
     @media (max-width: 800px) {
-      font-size: 2vw;
+      font-size: 0.8vw;
     }
     @media (max-width: 280px) {
       font-size: 5vw;
@@ -128,13 +148,14 @@ const BotaoCompra = styled.button`
     font-size: 2vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   @media (max-width: 280px) {
     font-size: 3vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
   }
+  border-radius: 5px;
   background: linear-gradient(
     90deg,
     rgba(52, 131, 250, 1) 0%,

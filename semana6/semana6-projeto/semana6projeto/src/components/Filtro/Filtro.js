@@ -4,13 +4,14 @@ import styled from "styled-components";
 const Filter = styled.div`
   & > h1 {
     text-align: center;
+    font-size:2.5vw;
   }
   & > input {
     border-radius: 5px;
   }
-  font-size: 1.7vw;
-  min-height: 20vh;
-  max-height: 60vh;
+  font-size: 1.5vw;
+  min-height: 20%;
+  max-height: 60%;
   @media (max-width: 950px) {
     max-height: 70%;
   }

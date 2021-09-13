@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const CartProducts = styled.div`
-  font-size: 2vw;
+  font-size: 1.5vw;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 80% 20%;
@@ -12,14 +12,17 @@ const CartProducts = styled.div`
   width: 100%;
   height: 100%;
   @media (max-width: 656px) {
-    height: 80%;
+    max-height: 60%;
+    min-height:40%;
   }
   @media (max-width: 539px) {
-    height: 70%;
+    max-height: 50%;
+    min-height:40%;
   }
 
   @media (max-width: 457px) {
-    height: 60%;
+    max-height: 55%;
+    min-height:45%;
   }
 
   border-radius: 5px;
@@ -50,7 +53,7 @@ const ButtonDelete = styled.button`
   border: none;
   color: white;
   width: 5vw;
-  height: 2.5vh;
+  height: 15%;
   background: linear-gradient(
     90deg,
     rgba(193, 22, 22, 1) 0%,
