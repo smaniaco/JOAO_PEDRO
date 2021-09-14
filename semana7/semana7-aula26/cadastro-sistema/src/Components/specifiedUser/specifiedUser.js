@@ -39,19 +39,20 @@ export class SpecifiedUser extends React.Component {
   openInput = ()=>{
     this.setState({input:!this.state.input})
   }
-  editUser = (id)=>{
+  editUser = async(id)=>{
     const body =  {
       name:this.state.nameInput,
       email:this.state.emailInput
 
     }
-    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, body, {headers:{Authorization:"Marico-da-Silva"}}).then((message)=>{
+    try {
+    const message = await axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, body, {headers:{Authorization:"Marico-da-Silva"}})
       console.log(message.data)
       alert("Usuario editado com sucesso")
-    }).catch((error)=>{
+    }catch(error){
       console.log(error)
       alert("Problema ao editar o usuário")
-    })
+    }
     console.log(body)
     this.setState({name:this.state.nameInput})
     this.setState({input:false})

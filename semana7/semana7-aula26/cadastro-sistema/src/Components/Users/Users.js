@@ -39,15 +39,27 @@ export class Users extends React.Component {
     listSearch: [],
     onSearch: false
   }
-  userList = ()=>{
-    axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {headers:{
+  userList = async ()=>{
+    
+    try {
+    const resposta = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {headers:{
+      Authorization:"Marico-da-Silva"
+    }})
+      this.setState({list:resposta.data})
+      console.log(resposta.data)
+    
+  }catch(error){
+    console.log(error)
+  }
+    
+    /***axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {headers:{
       Authorization:"Marico-da-Silva"
     }}).then((resposta)=>{
       this.setState({list:resposta.data})
       console.log(resposta.data)
     }).catch((error)=>{
       console.log(error)
-    })
+    })***/
   }
   
   onTrigger = (event) => {
@@ -58,10 +70,12 @@ export class Users extends React.Component {
     this.setState({user:false})
     this.userList()
   }
-  deleteUser = (id)=>{
+  deleteUser = async (id)=>{
     const question = window.confirm("Quer realmente deletar esse usuário?")
     if (question){
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {headers:{Authorization:"Marico-da-Silva"}}).then(()=>{
+    try{
+    const response = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {headers:{Authorization:"Marico-da-Silva"}})
+
       alert("Usuário deletado com sucesso")
       const newList = [...this.state.list].filter((item)=>{
         if(item.id !== id){
@@ -72,23 +86,26 @@ export class Users extends React.Component {
         }
       })
       this.setState({list:newList})
-    }).catch(()=>{
-      alert("Erro ao deletar usuário")
-    })}
     
+  }catch{
+      alert("Erro ao deletar usuário")
+    }
+  }
   }
   showSpecifiedUser(name,id){
     this.setState({user:true})
     this.setState({userData:[name,id]})
   }
   searchUsers(name){
-    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${name}`,{headers:{Authorization:"Marico-da-Silva"}} ).then((messagem)=>{
-      console.log("teste",messagem.data)
-      this.setState({listSearch:messagem.data})
-    }).catch((error)=>{
-      console.log(error)
-    })
-    this.setState({onSearch:!this.state.onSearch})
+  const messagem = this.state.list.filter((item)=>{
+    if (item.name.includes(name)){
+      return true
+    }
+    else{return false}
+  })
+  this.setState({listSearch:messagem})
+  
+  this.setState({onSearch:!this.state.onSearch})
   }
   onChangeSearch(event){
     this.setState({inputSearch:event.target.value})

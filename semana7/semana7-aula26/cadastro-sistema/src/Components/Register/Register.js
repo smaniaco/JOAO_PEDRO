@@ -70,20 +70,21 @@ export class Register extends React.Component {
     }
 
 
-    createNewUser =() =>{
+    createNewUser = async () =>{
         const body = {
             name:this.state.nome,
             email:this.state.email
         }
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body, {headers:{Authorization:"Marico-da-Silva"}}).then((resposta)=>{
+        try {
+        const resposta =  await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body, {headers:{Authorization:"Marico-da-Silva"}})
             console.log(resposta.data)
             alert("Usuario Criado com Sucesso")
             this.setState({erro:false})
-        }).catch((error)=>{
+        }catch(error){
            console.log("tamanho do erro", error, "length",`${error}`.length)
            alert("Parece que temos um problema")
            this.setState({erro:true})
-        })
+        }
         this.setState({email:"",nome:""})
        
         
