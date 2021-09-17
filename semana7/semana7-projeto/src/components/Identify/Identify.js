@@ -18,10 +18,21 @@ const DivMain = styled.div`
 
 
 const ButtonReg = styled.button`
+    font-family:"Roboto";
     margin-top:10%;
     margin-bottom:10%;
     align-self: center;
-   
+    font-weight: bold;
+    border-radius: 10px;
+    background-color:rgba(255,255,255,0.5);
+    color:#222222;
+    border:none;
+    &:hover{
+      background-color:rgba(255,255,255,0.8);
+    }
+    &:active{
+      background-color:rgba(0,0,0,0.1);
+    }
 
 `
 
@@ -36,6 +47,7 @@ const RegDiv = styled.div`
     & > input{
         font-size:1em;
         margin:0 auto;
+        border-radius:5px;
         margin-bottom:1vh;
         width:15vw;
     }
@@ -49,12 +61,12 @@ const RegDiv = styled.div`
     
     box-sizing:border-box;
     margin:0 auto;
-    
+    background-color:rgba(255,255,255,0.5);
     min-width:30vw;
     min-height:35vh;
     display:flex;
     align-items: center;
-    border:solid 2px black;
+    color:#222222;
     flex-direction:column;
     border-radius:5vw;
 `
@@ -70,9 +82,13 @@ export class Identify extends React.Component {
   }
   
   sendName(event){
+    if (this.state.input !== ""){
     this.props.mainComp(this.state.input)
     event.preventDefault()
-    this.setState({input:""})
+    this.setState({input:""})}
+    else{
+      alert("Não aceitamos espaços em branco")
+    }
     
   }
   onChange(event){

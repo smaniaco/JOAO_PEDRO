@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-image: url("./images/parede-azul.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  
+}
+#titulo{
+    background-image: url("./images/triangles-1430105.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+
+}
+#playlistid{
+
+    background-image: url("./images/triangles-1430105.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
