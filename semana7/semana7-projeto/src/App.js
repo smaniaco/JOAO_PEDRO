@@ -1,7 +1,7 @@
 
 import styled from "styled-components"
 import React from 'react';
-import axios from "axios"
+
 import { Identify } from "./components/Identify/Identify"
 import { Logged } from "./components/Logged/Logged"
 import "./App.css"

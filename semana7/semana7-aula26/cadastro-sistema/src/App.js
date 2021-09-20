@@ -3,6 +3,7 @@ import React from 'react'
 import styled from "styled-components";
 import { Register } from "./Components/Register/Register"
 import { Users } from "./Components/Users/Users"
+import './App.css';
 
 
 
