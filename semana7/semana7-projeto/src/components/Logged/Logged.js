@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import axios from "axios";
 import close from "../../images/close.png";
+import play from "../../images/play.png";
 import LogoPlace from "../../images/logo-placeholder-1.png";
 
 const DivMain = styled.div`
@@ -94,6 +95,24 @@ const FormTrackInputs = styled.div`
 `;
 
 const Header = styled.div`
+& > button {
+    font-family: "Roboto";
+    margin-right:5vw;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    align-self: center;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    border: none;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
   display: flex;
   padding-left: 1vw;
   @media (max-width: 800px) {
@@ -183,7 +202,14 @@ const PlaylistsDiv = styled.div`
   & > button {
     margin-top: 5%;
   }
-
+  & > h1 {
+    width:80%;
+    text-align:center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color:rgba(255, 255, 255, 0.5);
+    margin-bottom:0;
+  }
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -204,6 +230,48 @@ const PlaylistBox = styled.div`
   white-space: nowrap;
 `;
 const PlayListItems = styled.div`
+  
+
+  & > button {
+    height: 2vw;
+    width: 3vw;
+    font-size: 1vw;
+  }
+  & > h2 {
+    font-size: 1.7vw;
+    @media (max-width: 800px) {
+      font-size: 5vw;
+    }
+    cursor:pointer;
+  }
+  background-color: rgba(255, 255, 255, 0.5);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
+  padding: 0 10px;
+`;
+
+const PlaylistTitle = styled.div`
+  & > h2 {
+    margin-right:1.5vw;
+    font-size:1.6vw;
+  }
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  box-sizing:border-box;
+  justify-content: space-around;
+
+`
+
+const PlaylistIcons = styled.div`
   & > img {
     width: 1vw;
     height: 1vw;
@@ -223,31 +291,22 @@ const PlayListItems = styled.div`
       }
     }
   }
-
-  & > button {
-    height: 2vw;
-    width: 3vw;
-    font-size: 1vw;
-  }
-  & > h2 {
-    font-size: 1.7vw;
-    @media (max-width: 800px) {
-      font-size: 5vw;
+  & > h3{
+    line-height: 20px;
+    font-size:1.5vw;
+    color:white;
+    &:hover{
+      filter: brightness(0%);
     }
+    cursor:pointer;
+    
   }
-  background-color: rgba(255, 255, 255, 0.5);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.5),
-    rgba(0, 0, 0, 0.5)
-  );
-  border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
-  padding: 0 10px;
-`;
+  width:40%;
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+  
+`
 const SendPlayList = styled.div`
   & > button {
     font-family: "Roboto";
@@ -284,6 +343,14 @@ const SendPlayList = styled.div`
 `;
 
 const MusicDiv = styled.div`
+  & > h1 {
+      width:80%;
+      text-align:center;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color:rgba(255, 255, 255, 0.5);
+      margin-bottom:0;
+  }
   display: flex;
   margin-top: 3vh;
   flex-direction: column;
@@ -301,8 +368,9 @@ const MusicDiv = styled.div`
 
 const MusicBox = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 1vw;
-  border: 1px black solid;
+
+  box-sizing:border-box;
+  padding:1vw;
   width: 80%;
   height: 90%;
   @media (max-width: 800px) {
@@ -333,6 +401,44 @@ const MusicItem = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+const Player = styled.div`
+  
+    position: fixed;
+    top:85vh;
+    animation-duration: 3s;
+    animation-name: slidein;
+    @keyframes slidein {
+    from {
+      margin-left: 100%;
+    
+    }
+  
+    to {
+      margin-left: 0%;
+      
+    }
+  }
+
+`
+
+const Form = styled.div`
+position: fixed;
+    top:35vh;
+    animation-duration: 3s;
+    animation-name: slidein;
+    @keyframes slidein {
+    from {
+      margin-left: 100%;
+    
+    }
+  
+    to {
+      margin-left: 0%;
+      
+    }
+  }
+`
+
 
 export class Logged extends React.Component {
   state = {
@@ -351,6 +457,8 @@ export class Logged extends React.Component {
     inputAddTrackLink: "",
     inputSpotify: "",
     spotifyAuth: "",
+    playlistNameDisplay:""
+  
   };
   createList = async () => {
     if (this.state.playlistName !== "") {
@@ -406,7 +514,7 @@ export class Logged extends React.Component {
     this.setState({ list: [...response] });
   };
 
-  getTracks = async (id) => {
+  getTracks = async (id, name) => {
     let response;
 
     try {
@@ -420,6 +528,7 @@ export class Logged extends React.Component {
 
     this.setState({ songList: response.data.result.tracks });
     this.setState({ playlistId: id });
+    this.setState({playlistNameDisplay:name})
   };
 
   addTrack = async (id) => {
@@ -474,52 +583,18 @@ export class Logged extends React.Component {
     this.setState({ audioLink: link });
     this.setState({ audioPlay: !this.state.audioPlay });
   };
-  searchSpotify = async (token) => {
-    console.log(this.state.inputSpotify)
-    let search = `${this.state.inputSpotify}`
-    let result
-    try {
-      result = await axios.get(`https://api.spotify.com/v1/search?q=Teste&type=track%2Cartist&market=US&limit=10&offset=5`, {
-      headers: {
-        Authorization :"Bearer " + token,
-      }
-    })
-    } catch (error) {
-      console.log(error);
-     
-    }
-    console.log(result)
-  };
-  requestAuthorization = ()=>{
-    const client_id = "a961eca406e44da79a939ae1ea51ba03"
-    const client_secret="786fb97ce235471db2fc90dbed259ff9"
-    const result = axios.get("https://accounts.spotify.com/authorize?client_id=a961eca406e44da79a939ae1ea51ba03&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09",{headers:{"Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, GET",
-    "Access-Control-Allow-Headers": "*",
-    "Access-Control-Max-Age": "86400"}})
-    
-  }
-  getToken = async()=>{
-    
-    const result = await fetch("https://accounts.spotify.com/api/token", {
-      method:"POST",
-      headers: {
-        "Content-type":"application/x-www-form-urlencoded",
-        "Authorization" :"Basic " + btoa("a961eca406e44da79a939ae1ea51ba03" + ":" + "786fb97ce235471db2fc90dbed259ff9")
-      },
-      body:"grant_type=client_credentials"
-    })
-    const data = await result
-    console.log(data)
-    return data.access_token
-  }
-  stopifyOn = () => {
-    this.setState({ spotifyOn: !this.state.spotifyOn });
-  };
+ 
+  
   addTrackShow = () => {
     this.setState({ addTrack: !this.state.addTrack });
   };
-
+  sendName(event){
+    
+    this.props.mainComp(this.state.input)
+    event.preventDefault()
+    
+    
+  }
   onChangeNome(event) {
     this.setState({ playlistName: event.target.value });
   }
@@ -539,13 +614,21 @@ export class Logged extends React.Component {
     this.listCatcher();
   }
   render() {
-    const token= this.getToken()
-    console.log(token)
+    
     const listItems = this.state.list.map((playlist) => {
       return (
         <PlayListItems key={playlist.id}>
-          <h2 onClick={() => this.getTracks(playlist.id)}>{playlist.name}</h2>
+          <PlaylistTitle>
+            {playlist.name.length < 12 ?
+          <h2 onClick={() => this.getTracks(playlist.id, playlist.name)}>{playlist.name}</h2>
+          :  <h2 onClick={() => this.getTracks(playlist.id, playlist.name)}>{playlist.name.slice(0, 12)}...</h2> }
+          {this.state.playlistNameDisplay === playlist.name ? <p>►</p>:""}
+          </PlaylistTitle>
+          <PlaylistIcons>
+            
+          <h3 onClick={() => this.getTracks(playlist.id, playlist.name)}>ABRIR PLAYLIST</h3>
           <img src={close} onClick={() => this.deletePlaylist(playlist.id)} />
+          </PlaylistIcons>
         </PlayListItems>
       );
     });
@@ -557,7 +640,10 @@ export class Logged extends React.Component {
             <span onClick={() => this.playTrack(song.url)}>{song.name}</span> -{" "}
             {song.artist}
           </h3>
-          <img src={close} onClick={() => this.deleteTrack(song.id)} />
+          <PlaylistIcons>
+          <img id="play" src={play} onClick={() => this.playTrack(song.url)}/>
+          <img src={close} onClick={() => this.deleteTrack(song.id)}/>
+          </PlaylistIcons>
         </MusicItem>
       );
     });
@@ -570,11 +656,14 @@ export class Logged extends React.Component {
               <li>HOME</li>
             </a>
           </NavMenu>
+          <button onClick={this.sendName.bind(this)}>SAIR</button>
         </Header>
         <Title id="titulo">
-          <h1>Playlist do(a) {this.state.name}</h1>
+          <h1>Usuario: {this.state.name}</h1>
+          
         </Title>
         <PlaylistsDiv>
+          <h1>Playlists</h1>
           <PlaylistBox id="playlistid">{listItems}</PlaylistBox>
 
           {!this.state.createPlaylist ? (
@@ -593,9 +682,10 @@ export class Logged extends React.Component {
           )}
         </PlaylistsDiv>
         <MusicDiv>
+          <h1>Musicas</h1>
           <MusicBox>{songList}</MusicBox>
           {this.state.addTrack ? (
-            <div>
+            <Form>
               <FormTrackInputs>
                 <p>Nome:</p>
                 <input
@@ -618,33 +708,23 @@ export class Logged extends React.Component {
                 </button>
                 <button onClick={this.addTrackShow}>CANCELAR</button>
               </FormTrackInputs>
-            </div>
+            </Form>
           ) : (
             <FormTrack>
               <button onClick={this.addTrackShow}>ADD TRACK</button>
             </FormTrack>
           )}
-          {this.state.spotifyOn ? (
-            <div>
-              <input
-                onChange={this.onChangeSpotify.bind(this)}
-                value={this.state.inputSpotify}
-              />
-              <button onClick={this.requestAuthorization}>
-                BUSCAR
-              </button>
-              <button onClick={this.stopifyOn}>CANCELAR</button>
-            </div>
-          ) : (
-            <button onClick={this.stopifyOn}>Procure no spotify</button>
-          )}
+         
           {this.state.audioPlay ? (
+            <Player>
             <audio controls>
               <source src={this.state.audioLink} type="audio/ogg" />
             </audio>
+            </Player>
           ) : (
             ""
           )}
+          
         </MusicDiv>
         <Footer>
           <p>Todos os direitos não reservados</p>

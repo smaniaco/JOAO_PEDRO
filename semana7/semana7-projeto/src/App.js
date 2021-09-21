@@ -34,13 +34,17 @@ export class App extends React.Component {
     this.setState({name:name})
     this.setState({page:"logged"})
   }
+  callBackToHome = ()=>{
+
+    this.setState({page:"start"})
+  }
 
   render(){
  
   return (
     <MainDiv>
       {this.state.page === "start" ?<Identify mainComp= {this.callBackName}/>: ""}
-      {this.state.page === "logged" ?<Logged name= {this.state.name}/>: ""}
+      {this.state.page === "logged" ?<Logged mainComp= {this.callBackToHome} name= {this.state.name}/>: ""}
     </MainDiv>
   );
   }
