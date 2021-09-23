@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+body{
+  font-family:"Roboto";
+}
+
+
+#landing-page{
+  background-image:url("./images/home/landing-page.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+
+}
