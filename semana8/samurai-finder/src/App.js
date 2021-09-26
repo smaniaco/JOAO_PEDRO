@@ -6,6 +6,8 @@ import "./App.css"
 import 'antd/dist/antd.css';
 import { BeSamurai } from "./Components/BeSamurai/BeSamurai"
 import { Find } from "./Components/Find/Find"
+import { CartPage } from "./Components/Cart/Cart"
+
 
 
 const MainDiv = styled.div`
@@ -42,7 +44,7 @@ const MenuUl = styled.ul`
   }
   display: flex;
   padding:0;
-  width:50%;
+  width:70%;
   height:100%;
   align-items:center;
   list-style-type: none;
@@ -93,27 +95,83 @@ const Filter = styled.div`
 `
 
 const Logo = styled.div`
+  display:flex;
+  color:white;
+  justify-content:center;
+  align-items:center;
   margin:0 3vw;
-  height:6vw;
+  height:100%;
   width:6vw;
 `
 
 
 
+
+
 class App extends React.Component {
   state = {
-    page:"home"
+    page:"home",
+    carrinho: []
+   
   }
+
   changePage(page){
 
     this.setState({page:page})
 
   }
-  render(){
-  return (
+  cartAdd(product){
+    let state = false
+    for (let prod of this.state.carrinho){
+      if(product.id === prod.id){
+        state = true
+      }
+    }
+    if (state === false){
+    product = {...product, idCart:Math.random()}
+    let oldList = [...this.state.carrinho,product]
+    this.setState({carrinho:[...oldList]})
+    console.log(this.state.carrinho)}
+    else{
+      alert("este produto ja existe no carrinho")
+    }
+  }
 
+  deleteProd(id){
+    const oldList = [...this.state.carrinho]
+    const newList = oldList.filter((product)=>{
+      console.log(product.id, " e ", id)
+      if(product.idCart === id){
+          return false
+      }
+      else{
+        return true
+      }
+    }
+    )
+    this.setState({carrinho:newList})
+    console.log(this.state.carrinho)
+  }
+
+  clearList = ()=>{
+    this.setState({carrinho:[]})
+  }
+
+  componentDidMount(){
+    const loadCarrinho = JSON.parse(localStorage.getItem("carrinho"));
+    if (loadCarrinho !== null && loadCarrinho !== undefined){
+    this.setState({ carrinho: loadCarrinho })}
+  }
+  componentDidUpdate() {
+    localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho));
+  }
+  
+  render(){
+
+
+  const key="c031e0dd-6176-4cbf-9978-49c392be9b8c"
+  return (
     <MainDiv>
-      
       <Header>
         <Logo>
           LOGO
@@ -127,6 +185,9 @@ class App extends React.Component {
           </li>
           <li onClick={()=>this.changePage("beHired")}>
             SEJA UM SAMURAI
+          </li>
+          <li onClick={()=>this.changePage("cart")}>
+            CARRINHO
           </li>
         </MenuUl>
 
@@ -142,9 +203,12 @@ class App extends React.Component {
           </ButtonsDiv>
         </Filter>
       </Landing>
+
       :""}
-      {this.state.page === "hire" ?  <Find/>:""}
-      {this.state.page === "beHired" ?  <BeSamurai/>:""}
+      {this.state.page  === "hire" ?  <Find deleter = {this.deleteProd.bind(this)} cartCallBack={this.cartAdd.bind(this)}/>:""}
+      {this.state.page === "beHired" ?  <BeSamurai changePage = {this.changePage.bind(this)}/>:""}
+      {this.state.page === "cart" ?  <CartPage clearCart={this.clearList.bind(this)}  deleter={this.deleteProd.bind(this)} cartProd={this.state.carrinho}/>:""}
+     
       <Footer>
         TODOS OS DIREITOS RESERVADOS
       </Footer>
