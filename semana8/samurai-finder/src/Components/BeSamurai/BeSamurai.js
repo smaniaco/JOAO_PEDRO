@@ -3,7 +3,7 @@ import axios from "axios"
 import React from "react"
 import { Button } from "antd"
 import 'antd/dist/antd.css';
-
+import { Spin } from "antd"
 const MainDiv = styled.div`
   height:90%;
 `
@@ -75,7 +75,8 @@ export class BeSamurai extends React.Component {
     },
     paymentVal:[],
     date:"",
-    redirect:false
+    redirect:false,
+    animate:false
     
   }
 
@@ -147,6 +148,7 @@ export class BeSamurai extends React.Component {
     dueDate:this.state.date}
       console.log(body)
     try{
+      this.setState({animate:true})
       const response = await axios.post("https://labeninjas.herokuapp.com/jobs",body,{headers:{authorization:"c031e0dd-6176-4cbf-9978-49c392be9b8c"}})
       console.log(response)
       if(response.status === 200){
@@ -165,7 +167,7 @@ export class BeSamurai extends React.Component {
   
 })
 
-
+this.setState({animate:false})
 
 
 }
@@ -176,7 +178,9 @@ export class BeSamurai extends React.Component {
     <MainDiv>
       
       <PageGrid id="besamurai">
+        
         <FormDiv>
+  
           <p>Título</p>
           <input value={this.state.title} onChange={this.onChangeTitle.bind(this)}/>
           <p>Descrição</p>
@@ -194,13 +198,16 @@ export class BeSamurai extends React.Component {
           <input id="boleto"  onChange={()=>this.onChangePayment("boleto")} type="checkbox"/>
           <p>PayPal</p>
           <input id="paypal"  onChange={()=>this.onChangePayment("paypal")} type="checkbox"/>
-
+          
           </CheckBoxes>
         
             <input type="date" value={this.state.date} onChange={this.onChangeDate.bind(this)} type="date"/>
             <Button type="primary" onClick={this.createjob}>Enviar</Button>
+         
           </FormDiv>
+          
         </PageGrid>
+        
     </MainDiv>
   )}
 }

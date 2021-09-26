@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 import { BeSamurai } from "./Components/BeSamurai/BeSamurai"
 import { Find } from "./Components/Find/Find"
 import { CartPage } from "./Components/Cart/Cart"
-
+import { Spin, Alert } from "antd"
 
 
 const MainDiv = styled.div`
@@ -172,6 +172,7 @@ class App extends React.Component {
   const key="c031e0dd-6176-4cbf-9978-49c392be9b8c"
   return (
     <MainDiv>
+ 
       <Header>
         <Logo>
           LOGO
@@ -192,6 +193,7 @@ class App extends React.Component {
         </MenuUl>
 
       </Header>
+      
       {this.state.page === "home" ?
       <Landing id="landing-page">
         <Filter>
@@ -212,6 +214,7 @@ class App extends React.Component {
       <Footer>
         TODOS OS DIREITOS RESERVADOS
       </Footer>
+ 
     </MainDiv>
   )}
 }
