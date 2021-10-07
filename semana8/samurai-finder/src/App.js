@@ -8,6 +8,7 @@ import { BeSamurai } from "./Components/BeSamurai/BeSamurai"
 import { Find } from "./Components/Find/Find"
 import { CartPage } from "./Components/Cart/Cart"
 import { Spin, Alert } from "antd"
+import PreLoader1 from "./Components/PreLoader/PreLoader"
 
 
 const MainDiv = styled.div`
@@ -174,6 +175,7 @@ class App extends React.Component {
     <MainDiv>
  
       <Header>
+        
         <Logo>
           LOGO
         </Logo>
