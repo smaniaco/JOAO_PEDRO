@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+body{
+  font-family:"Roboto";
+}
+
+#cartList::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+#cartList::-webkit-scrollbar-track {
+  border-radius:20px;
+  background: #2C7CC7;        /* color of the tracking area */
+}
+
+#cartList::-webkit-scrollbar-thumb {
+  background-color: #1B4C7A;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #2C7CC7;  /* creates padding around scroll thumb */
+}
+
+#besamurai {
+  background-image:url("./images/BeSamurai/background.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+#landing-page{
+  background-image:url("./images/home/landing-page.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+
+}
+
+.teste{
+  width:100%;
+}
+.cardItem{
+  overflow-y: auto;
+  height:45vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.cardItem::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+
+.cardItem::-webkit-scrollbar-track {
+  border-radius:20px;
+  background: #2C7CC7;        /* color of the tracking area */
+}
+
+.cardItem::-webkit-scrollbar-thumb {
+  background-color: #1B4C7A;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #2C7CC7;  /* creates padding around scroll thumb */
+}
