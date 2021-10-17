@@ -1,0 +1,170 @@
+
+.card{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height:600px;
+  padding:0 !important;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+  border-radius:20px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: rgb(214,157,168);        /* color of the tracking area */
+  border-radius:20px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(255,238,227);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(214,157,168);  /* creates padding around scroll thumb */
+}
+
+.MainDiv{
+  background-image:url("./images/heart-pattern.svg");
+  background-size:cover;
+}
+
+.ant-card-body{
+  padding:0 !important;
+}
+
+.play-on-hover{
+  width:5vw;
+  height:5vw;
+  
+  background-image:url("./Components/MainComponent/gif/heart-in-hand.jpg");
+  background-size:cover;
+  cursor:pointer;
+  
+
+}
+@media (max-width:1300px){
+ .play-on-hover{
+   width:7vw;
+   height:7vw;
+ }   
+ .play-on-hover:hover{
+  width:7vw;
+  height:7vw;
+}   
+}
+@media (max-width:600px){
+  .play-on-hover{
+    width:12vw;
+    height:12vw;
+  }   
+  .play-on-hover:hover{
+   width:12vw;
+   height:12vw;
+ }   
+ }
+.play-on-hover:hover{
+  width:5vw;
+  height:5vw;
+  background-image:url("./Components/MainComponent/gif/heart-in-hand.gif");
+  background-size:cover;
+  cursor:pointer;
+
+}
+@media (max-width:1300px){
+  
+  .play-on-hover:hover{
+   width:7vw;
+   height:7vw;
+ }   
+ }
+ @media (max-width:600px){
+  
+  .play-on-hover:hover{
+   width:12vw;
+   height:12vw;
+ }   
+ }
+
+.on-hover-clear{
+  width:5vw;
+  height:5vw;
+  background-image:url("./Components/MainComponent/gif/delete-confirmation.jpg");
+  background-size:cover;
+  cursor:pointer;
+
+}
+@media (max-width:1300px){
+  
+  .on-hover-clear{
+   width:7vw;
+   height:7vw;
+ }   
+ }
+ @media (max-width:600px){
+  
+  .on-hover-clear{
+   width:12vw;
+   height:12vw;
+ }   
+ }
+.on-hover-clear:hover{
+  width:5vw;
+  height:5vw;
+  background-image:url("./Components/MainComponent/gif/delete-confirmation.gif");
+  background-size:cover;
+  cursor:pointer;
+
+}
+@media (max-width:1300px){
+  
+  .on-hover-clear:hover{
+   width:7vw;
+   height:7vw;
+ }   
+ }
+ @media (max-width:600px){
+  
+  .on-hover-clear:hover{
+   width:12vw;
+   height:12vw;
+ }   
+ }
+/*
+<MainDiv>
+      
+      <TopPanel >
+      <div onClick={matchListOn} className="play-on-hover">
+      </div>
+      
+      {matchList ? <div className="on-hover-clear" onClick={clear}></div> : ""}
+      </TopPanel>
+      {matchList ? 
+      <MatchListContainer>
+     
+      <MatchListDiv>
+        
+        {matchElements}
+      </MatchListDiv>
+      </MatchListContainer>:
+      <MatchesContainerFather>
+      {loading ?
+      <MatchesContainer>
+      
+      {profiles.profile === null ? <h1>Voce ja aceitou todos resultados</h1>:
+      <MatchesContainer>
+      <Card>
+      <Card className="card" hoverable={true}  >
+      <BackPhoto src={profiles.profile.photo}/>
+      <TextDiv>
+      <Title>{profiles.profile.name}, {profiles.profile.age}</Title>
+      <Description>{profiles.profile.bio}</Description>
+      </TextDiv>
+      
+      </Card>
+      <ButtonDiv>
+      <Check onClick={() => choosePerson(true)} src={check}/>
+      <Check onClick={() => choosePerson(false)} src={refuse}/>
+      
+      
+      </ButtonDiv>
+    </MatchesContainer>*/
