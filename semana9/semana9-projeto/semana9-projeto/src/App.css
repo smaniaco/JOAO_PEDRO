@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 
 .card{
   display:flex;
@@ -33,106 +37,51 @@
 }
 
 .play-on-hover{
-  width:5vw;
-  height:5vw;
+  width:100%;
+  height:100%;
   
   background-image:url("./Components/MainComponent/gif/heart-in-hand.jpg");
-  background-size:cover;
+  background-size:contain;
+  background-repeat: no-repeat;
   cursor:pointer;
   
 
 }
-@media (max-width:1300px){
- .play-on-hover{
-   width:7vw;
-   height:7vw;
- }   
- .play-on-hover:hover{
-  width:7vw;
-  height:7vw;
-}   
-}
-@media (max-width:600px){
-  .play-on-hover{
-    width:12vw;
-    height:12vw;
-  }   
-  .play-on-hover:hover{
-   width:12vw;
-   height:12vw;
- }   
- }
+
 .play-on-hover:hover{
-  width:5vw;
-  height:5vw;
+  width:100%;
+  height:100%;
   background-image:url("./Components/MainComponent/gif/heart-in-hand.gif");
-  background-size:cover;
+  background-size:contain;
   cursor:pointer;
 
 }
-@media (max-width:1300px){
-  
-  .play-on-hover:hover{
-   width:7vw;
-   height:7vw;
- }   
- }
- @media (max-width:600px){
-  
-  .play-on-hover:hover{
-   width:12vw;
-   height:12vw;
- }   
- }
+
 
 .on-hover-clear{
-  width:5vw;
-  height:5vw;
+  width:100%;
+  height:100%;
   background-image:url("./Components/MainComponent/gif/delete-confirmation.jpg");
-  background-size:cover;
+  background-size:contain;
+  background-repeat: no-repeat;
   cursor:pointer;
+  background-position: right;
 
 }
-@media (max-width:1300px){
-  
-  .on-hover-clear{
-   width:7vw;
-   height:7vw;
- }   
- }
- @media (max-width:600px){
-  
-  .on-hover-clear{
-   width:12vw;
-   height:12vw;
- }   
- }
+
 .on-hover-clear:hover{
-  width:5vw;
-  height:5vw;
+  width:100%;
+  height:100%;
   background-image:url("./Components/MainComponent/gif/delete-confirmation.gif");
-  background-size:cover;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: right;
   cursor:pointer;
 
 }
-@media (max-width:1300px){
-  
-  .on-hover-clear:hover{
-   width:7vw;
-   height:7vw;
- }   
- }
- @media (max-width:600px){
-  
-  .on-hover-clear:hover{
-   width:12vw;
-   height:12vw;
- }   
- }
+
 /*
-<MainDiv>
-      
-      <TopPanel >
+<TopPanel >
       <div onClick={matchListOn} className="play-on-hover">
       </div>
       
@@ -140,31 +89,61 @@
       </TopPanel>
       {matchList ? 
       <MatchListContainer>
-     
-      <MatchListDiv>
+       {loadingMatches === true ?
+      <MatchListDiv className="scroll">
         
         {matchElements}
-      </MatchListDiv>
+      </MatchListDiv>:<LoadingMatchesContainer><Lottie 
+      
+	    options={defaultOptions}
+        height={"5vw"}
+        width={"5vw"}
+      />
+      </LoadingMatchesContainer>
+      }
       </MatchListContainer>:
       <MatchesContainerFather>
       {loading ?
       <MatchesContainer>
       
-      {profiles.profile === null ? <h1>Voce ja aceitou todos resultados</h1>:
+      {profiles.profile === null ? <NoMatches><h1>Parece que você voou muito alto!
+        Você ja viu todos candidatos</h1>
+        <Lottie 
+      
+	    options={defaultOptionsRocket}
+        height={"15vw"}
+        width={"15vw"}
+      />
+      </NoMatches>:
       <MatchesContainer>
-      <Card>
-      <Card className="card" hoverable={true}  >
-      <BackPhoto src={profiles.profile.photo}/>
-      <TextDiv>
+      <MatchesMainDiv>
+        <BackPhoto src={profiles.profile.photo}/>
+        <ImageCandidateDiv>
+        <ImageCandidate src={profiles.profile.photo}/>
+        </ImageCandidateDiv>
+        <TextDiv>
       <Title>{profiles.profile.name}, {profiles.profile.age}</Title>
       <Description>{profiles.profile.bio}</Description>
       </TextDiv>
-      
-      </Card>
+      </MatchesMainDiv>
       <ButtonDiv>
       <Check onClick={() => choosePerson(true)} src={check}/>
-      <Check onClick={() => choosePerson(false)} src={refuse}/>
-      
+      <Refuse onClick={()=> choosePerson(false)} src={refuse}/>
       
       </ButtonDiv>
-    </MatchesContainer>*/
+    </MatchesContainer>
+} 
+    
+    </MatchesContainer> 
+      :<MatchesContainerLoading><Lottie 
+      
+	    options={defaultOptions}
+        height={"5vw"}
+        width={"5vw"}
+      /></MatchesContainerLoading>} 
+   
+
+      </MatchesContainerFather>
+
+
+      }*/
