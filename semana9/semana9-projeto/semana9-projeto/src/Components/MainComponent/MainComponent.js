@@ -5,6 +5,7 @@ import { Card } from "antd";
 import Lottie from "react-lottie";
 import animationData from "./lotties/heart";
 import rocket from "./lotties/rocket-launch.json";
+import bird from "./lotties/bird-flying.json"
 import check from "./svg/check-sign.svg";
 import refuse from "./svg/deny-sign.svg";
 
@@ -295,8 +296,16 @@ export function MainComponent(props) {
       preserveAspectRatio: "xMidYMid slice",
     },
   });
+  let [defaultOptionsBird, setDefaultOptionsBird] = useState({
+    loop: true,
+    autoplay: true,
+    animationData: bird,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  });
   let [loadingMatches, setLoadingMatches] = useState(false);
-
+  
   const getProfile = () => {
     axios
       .get(
@@ -395,7 +404,16 @@ export function MainComponent(props) {
       {matchList ? (
         <MatchListContainer>
           {loadingMatches === true ? (
-            <MatchListDiv className="scroll">{matchElements}</MatchListDiv>
+            <MatchListDiv className="scroll">{matches.length > 0 ? matchElements:<NoMatches>
+              <h1>
+                Parece que você ainda não achou ninguém, corra rápido! ou vai ficar sozinho.
+              </h1>
+              <Lottie
+                options={defaultOptionsBird}
+                height={"15vw"}
+                width={"15vw"}
+              />
+            </NoMatches>}</MatchListDiv>
           ) : (
             <LoadingMatchesContainer className="teste">
               <Lottie options={defaultOptions} height={"5vw"} width={"5vw"} />
